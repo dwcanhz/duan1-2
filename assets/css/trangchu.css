@@ -1,0 +1,396 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 1475px;
+}
+
+.banner>a>img {
+    width: 1475px;
+}
+
+header {
+    background-color: #f5f5f5;
+    height: 50px;
+    
+}
+
+.logo>a>img {
+    margin-top: 5px;
+    margin-left: 20px;
+    height: 40px;
+    width: 30px;
+    border-radius: 5px;
+}
+
+.menu_header {
+   
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu_header>ul {
+    display: flex;
+    list-style: none;
+    margin-right: 50px;
+}
+
+.menu_header>ul>li {
+    padding: 15px 20px 0 20px;
+}
+
+.menu_header>ul>li>a {
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+}
+
+.menu_header>ul>li:hover {
+    background-color: grey;
+}
+
+.timkiem {
+    margin: 10px 0 10px 450px;
+}
+
+.input_timkiem {
+    width: 500px;
+    height: 40px;
+    border-radius: 5px;
+    border: solid 2px black;
+    font-size: 20px;
+    text-align: center;
+}
+
+.button_timkiem {
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    border: solid 2px black;
+    font-size: 15px;
+    text-align: center;
+    padding-top: 5px;
+}
+
+
+footer {
+    margin-top: 20px;
+    height: 200px;
+    width: 1475px;
+    background-color: #222529;
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.menu_footer {
+    margin-left: 100px;
+    margin-top: 10px;
+}
+
+.menu_footer>h3 {
+    margin-bottom: 20px;
+    font-size: 25px;
+}
+
+.menu_footer>.text_footer {
+    margin-bottom: 10px;
+}
+
+.article {
+    width: 200px;
+    height: 500px;
+}
+
+.article1 {
+    width: 200px;
+    height: 200px;
+    border: solid 2px grey;
+    margin: 10px 10px;
+    border-radius: 2px;
+}
+
+.box_danhmuc {
+    width: 198px;
+    border: solid 1px grey;
+    border-right: none;
+    height: 35px;
+    font-size: 15px;
+}
+
+.text_article1 {
+    font-size: 20px;
+    background-color: #f5f5f5;
+}
+
+.box_danhmuc>a {
+    text-decoration: none;
+    color: black;
+}
+
+.content {
+    width: 1475px;
+    height: 500px;
+    display: flex;
+    position: relative;
+}
+
+.sale_banner>a>img {
+    width: 1200px;
+    height: 200px;
+    margin-left: 300px;
+    position: absolute;
+    top: 800px;
+    right: 50px;
+
+}
+
+/* het trang chu */
+.content_sanpham {
+    margin: 40px 30px;
+}
+
+.content_sanpham .products {
+    display: flex;
+    justify-content: space-between;
+    margin: 70px 0;
+}
+
+.text_products {
+    margin: 30px 0 20px 10px;
+    font-size: 20px;
+}
+
+.price {
+    margin-left: 75px;
+    font-size: 20px;
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.purchase {
+    margin: 40px 0 0 100px;
+    width: 100px;
+    height: 50px;
+    background-color: white;
+    color: brown;
+    border: solid 1px brown;
+    border-radius: 2px;
+}
+
+.purchase:hover {
+    background-color: brown;
+    color: white;
+    font-size: 18px;
+}
+.img_sanpham{
+    width: 300px;
+    height: 200px;
+}
+/* -  - */
+.pay {
+    display: flex;
+    margin: 50px 0;
+    margin-bottom: 300px;
+}
+
+.pay_sub_1 {
+    width: 980px;
+}
+
+.pay_sub_1 img {
+    width: 700px;
+    height: 500px;
+    margin-left: 100px;
+}
+
+.pay_sub_2 {
+    margin-top: 100px;
+    width: 495px;
+    margin-left: 8  0px;
+}
+
+.size button {
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    color: black;
+    border: solid 1px black;
+    border-radius: 5px;
+    font-size: 20px;
+    margin-left: 10px;
+}
+.size{
+   
+    margin-left: 50px;
+}
+.size button:hover {
+    background: black;
+    color: white;
+}
+
+.size button:focus {
+    background: black;
+    color: white;
+}
+.sale img{
+    width: 1475px;
+}
+.size_text{
+   padding-top: 20px;
+   margin-left: 20px;
+}
+.active,.name_pay,.size_text,.price_pay{
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: 900;
+}
+.price_pay{
+    color: #d52a1a;
+}
+.active{
+    color: #39800c;
+}
+.box{
+    width: 470px;
+    height: 200px;
+    background-color: #f5f6f8;
+}
+.quantity{
+    margin-top: 10px;
+}
+.quantity_choose{
+    width: 50px;
+    height: 30px;
+}
+.btn_pay{
+width: 250px;
+height: 50px;
+background-color: black;
+color: white;
+border-radius: 5px;
+}
+.box_btn_pay{
+    margin-top: 15px;
+    display: flex;
+    justify-content:space-evenly;
+   
+}
+.detail {
+    margin-left: 30px;
+    margin-top: 80px;
+}
+.detail ul{
+    margin-top: 20px;
+}
+.text_details{
+    font-size: 20px;
+}
+/*  - -  */
+
+/* Lienhe */
+.lienhe {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  
+}      
+.lienhe form input {
+    margin-top: 5px;
+    margin-bottom: 30px;
+}
+
+.radio {
+    width: 20px;
+    height: 20px;
+}
+.ykien{
+    height: 150px;
+}
+.title_lienhe{
+    text-align: center;
+    font-size: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.btn_lienhe{
+    background-color: white;
+    color: black;
+    width: 80px;
+    height: 40px;
+    margin-left: 40px;
+    border-radius: 2px;
+}
+.btn_lienhe:hover{
+    background-color: black;
+    color: white;
+    font-size: 20px;
+}
+/*  */
+/* -giohang- */
+.giohang{
+    margin: 30px 40px;
+    display: flex;
+}
+.khungsanpham{
+    display: flex;
+}
+.gia_hanghoa{
+    margin-left: 50px;
+}
+.dongia{
+    font-size: 60px;
+}
+.box_thanhtoan{
+    margin-top: 50px;
+    margin-left: 50px;
+    width: 400px;
+    height: 100px;
+    font-size: 50px;
+    background-color: black;
+    color: white;
+    line-height: 100px;
+    text-align: center;
+    border-radius: 10px;
+}
+.mota_khung{
+    margin-left: 20px;
+}
+.ten_sanpham{
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 700;
+}
+.box_thanhtoan:hover{
+background-color: grey;
+}
+.kichthuoc,.mota{
+    color: grey;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.anh_khung{
+    width: 300px;
+    height: 200px;
+}
+.line{
+    margin: 10px 20px;
+    width: 1px;
+    height: 1000px;
+    background-color: grey;
+}
+.gia_dongia,.soluong_dongia{
+    font-size: 30px;
+    margin: 20px ;
+}
