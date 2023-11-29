@@ -10,7 +10,7 @@
         <small class="text-gray-400">Welcome ! Please enter your details</small>
 
         <!-- Form -->
-        <form class="mt-4" action="?act=dangky" method="POST" enctype="multipart/form-data">
+        <form class="mt-4" action="index.php?act=dangky" method="POST" enctype="multipart/form-data">
           <div class="mb-3">
             <label class="mb-2 block text-xs font-semibold">Họ và tên</label>
             <input name="name_user" placeholder="Enter your name" class="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-1 px-1.5 text-gray-500" />
