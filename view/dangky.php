@@ -53,7 +53,7 @@
           </div>
 
           <div class="mb-3 flex flex-wrap content-center">
-            <input id="remember" type="checkbox" class="mr-1 checked:bg-purple-700" /> <label for="remember" class="mr-auto text-xs font-semibold">Remember for 30 days</label>
+            <!-- <input id="remember" type="checkbox" class="mr-1 checked:bg-purple-700" /> <label for="remember" class="mr-auto text-xs font-semibold">Remember for 30 days</label> -->
             <a href="/" class="text-xs font-semibold text-purple-700">Forgot password?</a>
           </div>
 

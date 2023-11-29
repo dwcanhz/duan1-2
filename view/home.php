@@ -122,7 +122,7 @@
     <h2 class="text-2xl font-bold tracking-tight text-gray-900 text-center">DANH MỤC SẢN PHẨM</h2>
     <div class="mt-6 p-2 grid grid-cols-3 gap-y-10 gap-x-6 sm:grid-cols-6 lg:grid-cols-6 xl:gap-x-5">
         <?php foreach ($categories as $key => $value) : ?>
-            <a href="?category=<?= str_replace(' ', '-', $value['ten_dm']) ?>&id=<?= $value['id'] ?>" class="group relative bg-gray-200 rounded-md">
+            <a href="?act=danhmuc&category=<?= str_replace(' ', '-', $value['ten_dm']) ?>&id=<?= $value['id'] ?>" class="group relative bg-gray-200 rounded-md">
                 <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md group-hover:opacity-75 lg:aspect-none flex items-center justify-center">
                     <img src="<?= $value['anh_sp'] ?>" alt=" <?= $value['ten_dm'] ?>" class="mt-4 h-16 w-16 lg:h-24 lg:w-24 rounded-full object-cover object-center">
                 </div>
@@ -160,7 +160,7 @@
                         </div>
                         <div class="relative">
 
-                            <a href="?chi-tiet&id=<?= $value['id_sp'] ?>">
+                            <a href="?act=chitietsanpham&id=<?= $value['id_sp'] ?>">
                                 <div class=" h-56 mb-3">
                                     <img src="<?=$value['anh_sp'] ?>" alt="Just a flower" class="h-full w-full object-fill rounded-2xl" />
                                 </div>
@@ -213,7 +213,7 @@
                     <div class="relative">
                       
 
-                        <a href="?chi-tiet&id=<?= $value['id_sp'] ?>">
+                        <a href="?act=chitietsanpham&id=<?= $value['id_sp'] ?>">
                             <div class=" h-56 mb-3">
                                 <img src="<?=$value['anh_sp'] ?>" alt="Just a flower" class="h-full w-full object-fill rounded-2xl" />
                             </div>

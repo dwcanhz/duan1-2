@@ -3,6 +3,7 @@ include '../view/header.php';
 include '../model/user.php';
 include '../model/danhmuc.php';
 include '../model/sanpham.php';
+include '../model/option.php';
 
 if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
     $act = $_GET['act'];
@@ -12,6 +13,8 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             break;
 
         case 'sanpham':
+            $categories =get_full_categoriess();
+            $products=get_all_product();
             include '../view/sanpham.php';
             break;
 
@@ -45,7 +48,6 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
         case 'dangky':
             if (isset($_POST['register'])) {
                 $name = $_POST['name_user'];
-        
                 $address = $_POST['address'];
                 $gender = $_POST['gender'];
                 $phone = $_POST['phone'];
@@ -75,10 +77,20 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             }
             include '../view/dangky.php';
             break;
+        case 'danhmuc':
+            $start = empty($_GET['start']) ? '' : $_GET['start'];
+            $end = empty($_GET['end']) ? '' : $_GET['end'];
+        
+            $products = get_products_by_category($_GET['id'], '', '', null);
+            $categories = get_full_categoriess();
+            include '../view/danh-muc.php';
+            break;
         case 'giohang':
             include '../view/giohang.php';
             break;
-            case 'chitietsanpham':
+        case 'chitietsanpham':
+            $sizes = getfullSize();
+            $product = getProductById($_GET['id']);
                 include '../view/chitietsanpham.php';
                 break;
         case 'login' :
@@ -96,9 +108,6 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
    
     include '../view/home.php';
 }
-
-
-
 include '../view/footer.php';
 
 

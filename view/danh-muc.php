@@ -246,8 +246,8 @@
                         <input type="text" placeholder="Thấp nhất" name='start' id="small-price" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"> -
                         <input type="text" placeholder="Cao nhất" name='end' id="big-price" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     </div>
-                </div> -->
-                <!-- <div id="cleatFilter" class="mt-3 hidden text-center text-sm cursor-pointer">Xóa bộ lọc</div>
+                </div>
+                <div id="cleatFilter" class="mt-3 hidden text-center text-sm cursor-pointer">Xóa bộ lọc</div>
                 <button id="btn-filter" data-catId="" class="w-full my-5 transition ease-in duration-300 inline-flex items-center justify-center text-sm font-medium mb-2 md:mb-0 bg-purple-500 px-4 py-2 hover:shadow-lg tracking-wider text-white rounded-full hover:bg-purple-600" type="submit">Lọc</button> -->
             </div>
         </div>
