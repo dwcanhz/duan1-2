@@ -1,115 +1,70 @@
 <?php
-include '../view/header.php';
-include '../model/user.php';
-include '../model/danhmuc.php';
-include '../model/sanpham.php';
-include '../model/option.php';
-
-if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
-    $act = $_GET['act'];
-    switch ($act) {
-        case 'lienhe':
-            include '../view/lienhe.php';
-            break;
-
-        case 'sanpham':
-            $categories =get_full_categoriess();
-            $products=get_all_product();
-            include '../view/sanpham.php';
-            break;
-
-        case 'dangnhap':
-            if (isset($_POST['login'])) {
-                $user_login = get_user_by_name($_POST['email']);
-                if (!($user_login)) {
-                    header('location: index.php?act=dangnhap&error1=Bạn chưa đăng ký');
-                } else {
-                    if (password_verify($_POST['password'], $user_login['password'])) {
-                        $userLogin['id'] = $user_login['id'];
-                        $userLogin['name'] = $user_login['name'];
-                        $userLogin['address'] = $user_login['address'];
-                        $userLogin['phone'] = $user_login['phone'];
-                        $userLogin['userName'] = $user_login['userName'];
-                        $userLogin['address'] = $user_login['address'];
-                        $userLogin['email'] = $user_login['email'];
-                        $userLogin['password'] = $user_login['password'];
-                        $userLogin['is_Admin'] = $user_login['is_Admin'];
-                        $_SESSION['user'] = $userLogin;
-                     
-        
-                        header("location:index.php");
-                    } else {
-                        header('location: index.php?act=dangnhap&error2=Sai mật khẩu');
-                    }
-                }
-            }
-            include '../view/dangnhap.php';
-            break;
-        case 'dangky':
-            if (isset($_POST['register'])) {
-                $name = $_POST['name_user'];
-                $address = $_POST['address'];
-                $gender = $_POST['gender'];
-                $phone = $_POST['phone'];
-                $image = $_FILES['image']['name'];
-                // $groupProduct_Id=$_POST['groupProduct_Id'];
-                //upload ảnh
-                $folder = "../uploads/";
-                $targerupload = $folder . basename($_FILES['image']['name']);
-                $targetupload = $folder . basename($_FILES['image']['name']);
-        
-                $email = $_POST['email'];
-                $password = $_POST['password'];
-                if (strlen($_POST['password']) < 8) {
-                    header('location: index.php?act=dangky&error1=Mật khẩu phải trên 8 ký tự');
-                    return;
-                }
-                $user_db = get_user_by_name($email);
-                if ($user_db) {
-                    header('location: index.php?act=dangky&error4=Tài khoản này đã tồn tại!!');
-        
-                } else {  
-                    if (move_uploaded_file($_FILES['image']['tmp_name'], $targetupload)) {
-                        add_user($name,$address,$phone,$email,password_hash($password, PASSWORD_BCRYPT),$gender,$image);
-                        header('location: index.php?act=dangnhap');
-                    }
-                }
-            }
-            include '../view/dangky.php';
-            break;
-        case 'danhmuc':
-            $start = empty($_GET['start']) ? '' : $_GET['start'];
-            $end = empty($_GET['end']) ? '' : $_GET['end'];
-        
-            $products = get_products_by_category($_GET['id'], '', '', null);
-            $categories = get_full_categoriess();
-            include '../view/danh-muc.php';
-            break;
-        case 'giohang':
-            include '../view/giohang.php';
-            break;
-        case 'chitietsanpham':
-            $sizes = getfullSize();
-            $product = getProductById($_GET['id']);
-                include '../view/chitietsanpham.php';
-                break;
-        case 'login' :
-           
-          
-
-        default:
-            # code...
-            break;
+    require_once "../config.php";
+    require_once "../session.php";
+    if(isset($_SESSION['username'])){
+        $username = $_SESSION['username'];
+        $sql = "SELECT * FROM users WHERE username = '$username'";
+        $result = $mysqli->query($sql);
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $_SESSION['admin'] = $row["admin"];
+        }
     }
-} else {
-    $categories =get_full_categoriess();
-    $productBestSl=get_products_bestseller();
-   $products=get_all_product();
-   
-    include '../view/home.php';
-}
-include '../view/footer.php';
 
+    $_SESSION['control'] = "dashboard";
 
-
-?>
+?>  
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Dashboard - SB Admin</title>
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="sb-nav-fixed">
+        <?php
+            if(isset($_SESSION['dangnhapthanhcong'])){
+                include "nav.php";
+        ?>
+        
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <?php
+                    include "aside.php";
+                ?>
+            </div>
+            <div id="layoutSidenav_content">
+                <?php
+                    if(isset($_SESSION["admin"]) && $_SESSION["admin"] == 1){
+                        include "statistic.php";
+                    }else{
+                        include "statistic-user.php";
+                    }
+                    
+                    include "footer.php";
+                ?>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+        <script src="js/datatables-simple-demo.js"></script>
+        <?php
+            }else{
+                echo '
+                    <meta http-equiv="refresh" content="0;URL=../login.php">
+                    <script>alert("Vui lòng đăng nhập!");</script>
+                ';
+            }
+        ?>
+    </body>
+</html>
